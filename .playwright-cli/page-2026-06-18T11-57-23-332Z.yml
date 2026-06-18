@@ -1,0 +1,266 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e6]:
+        - generic [ref=e7]: 暖通计算工作台
+        - generic [ref=e8]: 洁净区参数与选型依据
+      - generic [ref=e9]:
+        - generic [ref=e10]: 当前项目
+        - strong [ref=e11]: QZ-2026-017 · 常州洁净区改造
+        - generic [ref=e12]: V2 · 风量复核版
+        - generic [ref=e13]: 规则 v1.0
+      - generic [ref=e14]:
+        - generic [ref=e15]: 有未保存修改
+        - button "导出结果" [ref=e17] [cursor=pointer]
+        - button "保存方案" [ref=e18] [cursor=pointer]
+    - complementary [ref=e19]:
+      - navigation "主导航" [ref=e20]:
+        - button "01 项目库" [ref=e21] [cursor=pointer]:
+          - generic [ref=e22]: "01"
+          - generic [ref=e23]: 项目库
+        - button "02 需求汇总" [ref=e24] [cursor=pointer]:
+          - generic [ref=e25]: "02"
+          - generic [ref=e26]: 需求汇总
+        - button "03 计算总表" [ref=e27] [cursor=pointer]:
+          - generic [ref=e28]: "03"
+          - generic [ref=e29]: 计算总表
+        - button "04 收资导入" [ref=e30] [cursor=pointer]:
+          - generic [ref=e31]: "04"
+          - generic [ref=e32]: 收资导入
+      - generic [ref=e33]:
+        - generic [ref=e36]:
+          - strong [ref=e37]: 编辑锁已获取
+          - generic [ref=e38]: 28:42 后自动释放
+        - button "? 填写说明" [ref=e39] [cursor=pointer]:
+          - generic [ref=e40]: "?"
+          - generic [ref=e41]: 填写说明
+    - main [ref=e42]:
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - generic [ref=e45]:
+            - generic [ref=e46]: 项目库 / QZ-2026-017 / V2
+            - heading "需求汇总" [level=1] [ref=e47]
+          - generic [ref=e48]:
+            - combobox [ref=e49]:
+              - option "V2 · 风量复核版" [selected]
+              - option "V1 · 初版"
+            - button "项目参数" [ref=e50] [cursor=pointer]
+        - generic [ref=e51]:
+          - generic [ref=e52]:
+            - generic [ref=e53]: 项目地点
+            - generic [ref=e54]: 江苏 · 常州
+          - generic [ref=e55]:
+            - generic [ref=e56]: 夏季干球
+            - generic [ref=e57]: 34.6 ℃
+          - generic [ref=e58]:
+            - generic [ref=e59]: 夏季湿球
+            - generic [ref=e60]: 28.1 ℃
+          - generic [ref=e61]:
+            - generic [ref=e62]: 冬季空调温度
+            - generic [ref=e63]: "-3.5 ℃"
+          - generic [ref=e64]:
+            - generic [ref=e65]: 室外大气压力
+            - generic [ref=e66]: 1026.1 hPa
+          - button "查看全部气象参数" [ref=e67] [cursor=pointer]
+        - generic [ref=e68]:
+          - article [ref=e69]:
+            - text: 计算房间
+            - strong [ref=e70]: 2 间
+            - generic [ref=e71]: 全部位于 2F
+          - article [ref=e72]:
+            - text: 洁净区面积
+            - strong [ref=e73]: 576 m²
+            - generic [ref=e74]: 吊顶高度 3.0 m
+          - article [ref=e75]:
+            - text: 夏季总冷负荷
+            - strong [ref=e76]: 63.36 kW
+            - generic [ref=e77]: 单位面积 110 W/m²
+          - article [ref=e78]:
+            - text: 设计送风量
+            - strong [ref=e79]: 65,665 m³/h
+            - generic [ref=e80]: 按冷负荷需求控制
+          - article [ref=e81]:
+            - text: 设计新风量
+            - strong [ref=e82]: 2,933 m³/h
+            - generic [ref=e83]: 新风比 4.47%
+          - article [ref=e84]:
+            - text: FFU / 干盘管
+            - strong [ref=e85]: 36 / 26 台
+            - generic [ref=e86]: 按实际布置数量
+        - generic [ref=e87]:
+          - article [ref=e88]:
+            - generic [ref=e89]:
+              - generic [ref=e90]:
+                - generic [ref=e91]: A
+                - heading "楼层需求" [level=2] [ref=e92]
+              - button "切换区域" [ref=e93] [cursor=pointer]
+            - generic [ref=e94]:
+              - generic [ref=e95]:
+                - generic [ref=e96]: 楼层
+                - generic [ref=e97]: 面积
+                - generic [ref=e98]: 冷负荷
+                - generic [ref=e99]: 送风量
+                - generic [ref=e100]: 新风量
+                - generic [ref=e101]: FFU
+                - generic [ref=e102]: DCC
+              - generic [ref=e103]:
+                - generic [ref=e104]:
+                  - generic [ref=e105]: 2F
+                  - generic [ref=e106]: 2间房
+                - generic [ref=e107]: 576 m²
+                - generic [ref=e108]: 63.36 kW
+                - generic [ref=e109]: 65,665 m³/h
+                - generic [ref=e110]: 2,933 m³/h
+                - generic [ref=e111]: 36台
+                - generic [ref=e112]: 26台
+              - generic [ref=e113]:
+                - generic [ref=e114]: 项目合计
+                - generic [ref=e115]: 576 m²
+                - generic [ref=e116]: 63.36 kW
+                - generic [ref=e117]: 65,665 m³/h
+                - generic [ref=e118]: 2,933 m³/h
+                - generic [ref=e119]: 36台
+                - generic [ref=e120]: 26台
+          - article [ref=e121]:
+            - generic [ref=e122]:
+              - generic [ref=e123]:
+                - generic [ref=e124]: B
+                - heading "需求构成" [level=2] [ref=e125]
+              - generic [ref=e126]: 项目合计
+            - generic [ref=e127]:
+              - generic [ref=e129]:
+                - generic [ref=e130]: 围护结构
+                - generic [ref=e131]: 28.80 kW
+              - generic [ref=e135]:
+                - generic [ref=e136]: 照明
+                - generic [ref=e137]: 11.52 kW
+              - generic [ref=e141]:
+                - generic [ref=e142]: 工艺设备
+                - generic [ref=e143]: 23.04 kW
+          - article [ref=e146]:
+            - generic [ref=e147]:
+              - generic [ref=e148]:
+                - generic [ref=e149]: C
+                - heading "设计条件分布" [level=2] [ref=e150]
+              - generic [ref=e151]: 非累加参数
+            - generic [ref=e152]:
+              - generic [ref=e153]:
+                - generic [ref=e154]: 设计温度
+                - generic [ref=e155]: 23 ± 2 ℃
+                - generic [ref=e156]: 2间一致
+              - generic [ref=e157]:
+                - generic [ref=e158]: 设计湿度
+                - generic [ref=e159]: 45 ± 5 %
+                - generic [ref=e160]: 2间一致
+              - generic [ref=e161]:
+                - generic [ref=e162]: 洁净等级
+                - generic [ref=e163]: ISO 5.0
+                - generic [ref=e164]: 2间一致
+              - generic [ref=e165]:
+                - generic [ref=e166]: 房间压差
+                - generic [ref=e167]: 20 Pa
+                - generic [ref=e168]: 2间一致
+  - complementary "房间参数编辑" [ref=e169]:
+    - generic [ref=e170]:
+      - generic [ref=e171]:
+        - text: 编辑房间
+        - heading "2F-01 · 洁净室 1" [level=2] [ref=e172]
+      - button "关闭" [ref=e173] [cursor=pointer]: ×
+    - generic [ref=e174]:
+      - generic [ref=e175]: 2F
+      - generic [ref=e176]: 洁净区
+      - generic [ref=e177]: ISO 5.0
+      - generic [ref=e178]: 3项待应用
+    - generic [ref=e179]:
+      - generic [ref=e180]:
+        - button "01 基本信息 −" [ref=e181] [cursor=pointer]:
+          - generic [ref=e182]:
+            - generic [ref=e183]: "01"
+            - text: 基本信息
+          - generic [ref=e184]: −
+        - generic [ref=e185]:
+          - generic [ref=e186]:
+            - generic [ref=e187]:
+              - text: 房间编号
+              - emphasis [ref=e188]: 必填
+            - textbox "房间编号 必填" [ref=e189]: 2F-01
+          - generic [ref=e190]:
+            - generic [ref=e191]:
+              - text: 房间名称
+              - emphasis [ref=e192]: 必填
+            - textbox "房间名称 必填" [ref=e193]: 洁净室 1
+          - generic [ref=e194]:
+            - generic [ref=e195]: 楼层
+            - combobox "楼层" [ref=e196]:
+              - option "2F" [selected]
+          - generic [ref=e197]:
+            - generic [ref=e198]: 区域
+            - combobox "区域" [ref=e199]:
+              - option "洁净区" [selected]
+          - generic [ref=e200]:
+            - generic [ref=e201]:
+              - text: 面积
+              - generic [ref=e202]: m²
+            - textbox "面积 m²" [ref=e203]: "288.00"
+          - generic [ref=e204]:
+            - generic [ref=e205]:
+              - text: 吊顶高
+              - generic [ref=e206]: m
+            - textbox "吊顶高 m" [ref=e207]: "3.00"
+      - generic [ref=e208]:
+        - button "02 室内条件 −" [ref=e209] [cursor=pointer]:
+          - generic [ref=e210]:
+            - generic [ref=e211]: "02"
+            - text: 室内条件
+          - generic [ref=e212]: −
+        - generic [ref=e213]:
+          - generic [ref=e214]:
+            - generic [ref=e215]:
+              - text: 设计温度
+              - generic [ref=e216]: ℃
+            - generic [ref=e217]:
+              - textbox "设计温度 ℃ ± 2" [ref=e218]: "23"
+              - generic [ref=e219]: ±
+              - textbox [ref=e220]: "2"
+          - generic [ref=e221]:
+            - generic [ref=e222]:
+              - text: 设计湿度
+              - generic [ref=e223]: "%"
+            - generic [ref=e224]:
+              - textbox "设计湿度 % ± 5" [ref=e225]: "45"
+              - generic [ref=e226]: ±
+              - textbox [ref=e227]: "5"
+          - generic [ref=e228]:
+            - generic [ref=e229]: 洁净等级
+            - combobox "洁净等级" [ref=e230]:
+              - option "ISO 5.0" [selected]
+          - generic [ref=e231]:
+            - generic [ref=e232]:
+              - text: 控制粒径
+              - generic [ref=e233]: μm
+            - textbox "控制粒径 μm" [ref=e234]: "0.5"
+          - generic [ref=e235]:
+            - generic [ref=e236]:
+              - text: 房间压差
+              - generic [ref=e237]: Pa
+            - textbox "房间压差 Pa" [ref=e238]: "20"
+      - button "03 洁净与排风 ＋" [ref=e240] [cursor=pointer]:
+        - generic [ref=e241]:
+          - generic [ref=e242]: "03"
+          - text: 洁净与排风
+        - generic [ref=e243]: ＋
+      - button "04 负荷参数 ＋" [ref=e245] [cursor=pointer]:
+        - generic [ref=e246]:
+          - generic [ref=e247]: "04"
+          - text: 负荷参数
+        - generic [ref=e248]: ＋
+      - button "05 设备与构造 ＋" [ref=e250] [cursor=pointer]:
+        - generic [ref=e251]:
+          - generic [ref=e252]: "05"
+          - text: 设备与构造
+        - generic [ref=e253]: ＋
+    - generic [ref=e254]:
+      - button "取消" [ref=e255] [cursor=pointer]
+      - button "复制新建" [ref=e257] [cursor=pointer]
+      - button "应用并重算" [ref=e258] [cursor=pointer]
+  - button "Tweaks" [ref=e259] [cursor=pointer]

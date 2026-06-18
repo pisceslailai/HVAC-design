@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>暖通计算工作台 · 交互原型</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-density="standard" data-palette="process-blue">
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-block">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div>
+          <div class="brand-name">暖通计算工作台</div>
+          <div class="brand-caption">洁净区参数与选型依据</div>
+        </div>
+      </div>
+      <div class="project-context" id="projectContext">
+        <span class="context-label">当前项目</span>
+        <strong>QZ-2026-017 · 常州洁净区改造</strong>
+        <span class="version-pill">V2 · 风量复核版</span>
+        <span class="rule-pill">规则 v1.0</span>
+      </div>
+      <div class="top-actions">
+        <span class="save-state"><span class="state-dot"></span>有未保存修改</span>
+        <button class="button ghost">导出结果</button>
+        <button class="button primary">保存方案</button>
+      </div>
+    </header>
+
+    <aside class="sidebar">
+      <nav class="nav-list" aria-label="主导航">
+        <button class="nav-item" data-target="projects"><span class="nav-glyph">01</span><span>项目库</span></button>
+        <button class="nav-item" data-target="summary"><span class="nav-glyph">02</span><span>需求汇总</span></button>
+        <button class="nav-item" data-target="table"><span class="nav-glyph">03</span><span>计算总表</span></button>
+        <button class="nav-item" data-target="import"><span class="nav-glyph">04</span><span>收资导入</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="lock-card">
+          <span class="lock-status"></span>
+          <div><strong>编辑锁已获取</strong><small>28:42 后自动释放</small></div>
+        </div>
+        <button class="nav-item subtle"><span class="nav-glyph">?</span><span>填写说明</span></button>
+      </div>
+    </aside>
+
+    <main class="workspace">
+      <section class="screen" data-screen="projects">
+        <div class="page-heading">
+          <div>
+            <div class="eyebrow">PROJECT LIBRARY</div>
+            <h1>项目库</h1>
+            <p>集中保存项目、房间与方案版本。项目编号在项目库内唯一。</p>
+          </div>
+          <div class="heading-actions">
+            <button class="button ghost">从收资文件新建</button>
+            <button class="button primary">新建项目</button>
+          </div>
+        </div>
+
+        <div class="filter-bar">
+          <label class="search-box"><span class="search-prefix">查找</span><input value="" placeholder="项目编号或项目名称"></label>
+          <div class="segmented" aria-label="项目筛选">
+            <button class="active">全部项目 <b>3</b></button>
+            <button>最近编辑</button>
+          </div>
+          <select class="select"><option>按更新时间排序</option></select>
+        </div>
+
+        <div class="project-table card">
+          <div class="project-row project-header">
+            <span>项目</span><span>城市</span><span>房间</span><span>方案版本</span><span>最近更新</span><span></span>
+          </div>
+          <button class="project-row project-entry featured" data-target="summary">
+            <span class="project-identity"><b>QZ-2026-017</b><strong>常州洁净区改造</strong><small>当前工作项目 · 示例数据来自权威模板</small></span>
+            <span><b>常州</b><small>标准气象值</small></span>
+            <span><b>2</b><small>2F · 洁净区</small></span>
+            <span><b>V2</b><small>风量复核版</small></span>
+            <span><b>今天 15:42</b><small>有未保存修改</small></span>
+            <span class="row-action">打开</span>
+          </button>
+          <button class="project-row project-entry">
+            <span class="project-identity"><b>QZ-2026-009</b><strong>示例项目：生产区扩建</strong><small>用于界面状态展示</small></span>
+            <span><b>苏州</b><small>标准气象值</small></span>
+            <span><b>48</b><small>3个楼层</small></span>
+            <span><b>V4</b><small>施工图版</small></span>
+            <span><b>06-16 10:08</b><small>已保存</small></span>
+            <span class="row-action">打开</span>
+          </button>
+          <button class="project-row project-entry">
+            <span class="project-identity"><b>QZ-2026-003</b><strong>示例项目：研发楼洁净区</strong><small>用于界面状态展示</small></span>
+            <span><b>无锡</b><small>1项人工覆盖</small></span>
+            <span><b>126</b><small>5个楼层</small></span>
+            <span><b>V7</b><small>外审回复版</small></span>
+            <span><b>06-12 17:25</b><small>已保存</small></span>
+            <span class="row-action">打开</span>
+          </button>
+        </div>
+        <div class="library-footnote"><span>3 个项目</span><span>本界面为交互参考，非最终视觉规范</span></div>
+      </section>
+
+      <section class="screen" data-screen="summary">
+        <div class="compact-heading">
+          <div>
+            <div class="breadcrumbs">项目库 / QZ-2026-017 / <b>V2</b></div>
+            <h1>需求汇总</h1>
+          </div>
+          <div class="heading-actions">
+            <select class="select"><option>V2 · 风量复核版</option><option>V1 · 初版</option></select>
+            <button class="button ghost">项目参数</button>
+          </div>
+        </div>
+
+        <div class="climate-strip">
+          <div><span>项目地点</span><b>江苏 · 常州</b></div>
+          <div><span>夏季干球</span><b>34.6 ℃</b></div>
+          <div><span>夏季湿球</span><b>28.1 ℃</b></div>
+          <div><span>冬季空调温度</span><b>-3.5 ℃</b></div>
+          <div><span>室外大气压力</span><b>1026.1 hPa</b></div>
+          <button class="text-button">查看全部气象参数</button>
+        </div>
+
+        <div class="metric-grid">
+          <article class="metric-card"><span>计算房间</span><strong>2<small> 间</small></strong><div class="metric-note">全部位于 2F</div></article>
+          <article class="metric-card"><span>洁净区面积</span><strong>576<small> m²</small></strong><div class="metric-note">吊顶高度 3.0 m</div></article>
+          <article class="metric-card key"><span>夏季总冷负荷</span><strong>63.36<small> kW</small></strong><div class="metric-note">单位面积 110 W/m²</div></article>
+          <article class="metric-card key"><span>设计送风量</span><strong>65,665<small> m³/h</small></strong><div class="metric-note">按冷负荷需求控制</div></article>
+          <article class="metric-card"><span>设计新风量</span><strong>2,933<small> m³/h</small></strong><div class="metric-note">新风比 4.47%</div></article>
+          <article class="metric-card"><span>FFU / 干盘管</span><strong>36 / 26<small> 台</small></strong><div class="metric-note">按实际布置数量</div></article>
+        </div>
+
+        <div class="summary-grid">
+          <article class="card summary-card wide">
+            <div class="card-head"><div><span class="section-index">A</span><h2>楼层需求</h2></div><button class="text-button">切换区域</button></div>
+            <div class="floor-table">
+              <div class="floor-row floor-header"><span>楼层</span><span>面积</span><span>冷负荷</span><span>送风量</span><span>新风量</span><span>FFU</span><span>DCC</span></div>
+              <div class="floor-row"><span><b>2F</b><small>2间房</small></span><span>576 m²</span><span>63.36 kW</span><span>65,665 m³/h</span><span>2,933 m³/h</span><span>36台</span><span>26台</span></div>
+              <div class="floor-row total"><span>项目合计</span><span>576 m²</span><span>63.36 kW</span><span>65,665 m³/h</span><span>2,933 m³/h</span><span>36台</span><span>26台</span></div>
+            </div>
+          </article>
+
+          <article class="card summary-card">
+            <div class="card-head"><div><span class="section-index">B</span><h2>需求构成</h2></div><span class="muted">项目合计</span></div>
+            <div class="bar-list">
+              <div class="bar-item"><div><span>围护结构</span><b>28.80 kW</b></div><div class="bar-track"><i style="width:45%"></i></div></div>
+              <div class="bar-item"><div><span>照明</span><b>11.52 kW</b></div><div class="bar-track"><i style="width:18%"></i></div></div>
+              <div class="bar-item"><div><span>工艺设备</span><b>23.04 kW</b></div><div class="bar-track"><i style="width:36%"></i></div></div>
+            </div>
+          </article>
+
+          <article class="card summary-card">
+            <div class="card-head"><div><span class="section-index">C</span><h2>设计条件分布</h2></div><span class="muted">非累加参数</span></div>
+            <div class="distribution-list">
+              <div><span>设计温度</span><b>23 ± 2 ℃</b><small>2间一致</small></div>
+              <div><span>设计湿度</span><b>45 ± 5 %</b><small>2间一致</small></div>
+              <div><span>洁净等级</span><b>ISO 5.0</b><small>2间一致</small></div>
+              <div><span>房间压差</span><b>20 Pa</b><small>2间一致</small></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="table">
+        <div class="compact-heading table-heading">
+          <div><div class="breadcrumbs">项目库 / QZ-2026-017 / V2</div><h1>计算总表</h1></div>
+          <div class="heading-actions"><button class="button ghost" id="openDrawer">编辑当前房间</button><button class="button ghost">复制新建房间</button><button class="button primary">新增房间</button></div>
+        </div>
+
+        <div class="table-toolbar">
+          <label class="search-box slim"><span class="search-prefix">参数</span><input placeholder="搜索参数名称"></label>
+          <select class="select"><option>全部楼层</option><option>2F</option></select>
+          <select class="select"><option>全部区域</option><option>洁净区</option></select>
+          <div class="segmented compact"><button class="active">常用参数</button><button>全部参数</button></div>
+          <div class="toolbar-spacer"></div>
+          <span class="legend"><i class="legend-input"></i>输入</span><span class="legend"><i class="legend-result"></i>计算结果</span><span class="legend"><i class="legend-warning"></i>人工覆盖</span>
+        </div>
+
+        <div class="calc-table-wrap card">
+          <table class="calc-table">
+            <thead><tr><th class="param-col">参数</th><th class="unit-col">单位</th><th class="room-col selected">2F-01<small>洁净室 1</small><button class="mini-edit" data-open-drawer>编辑</button></th><th class="room-col">2F-02<small>洁净室 2</small><button class="mini-edit" data-open-drawer>编辑</button></th><th class="total-col">项目合计</th><th class="note-col">说明</th></tr></thead>
+            <tbody>
+              <tr class="group-row"><td colspan="6"><button class="group-toggle">−</button><b>基础参数</b><span>8项</span></td></tr>
+              <tr><td class="param-col input-param">面积</td><td>m²</td><td>288.00</td><td>288.00</td><td class="total-cell">576.00</td><td></td></tr>
+              <tr><td class="param-col input-param">吊顶高</td><td>m</td><td>3.00</td><td>3.00</td><td>—</td><td></td></tr>
+              <tr><td class="param-col input-param">设计温度</td><td>℃</td><td>23 ± 2</td><td>23 ± 2</td><td>—</td><td></td></tr>
+              <tr><td class="param-col input-param">设计湿度</td><td>%</td><td>45 ± 5</td><td>45 ± 5</td><td>—</td><td></td></tr>
+              <tr><td class="param-col input-param">洁净等级</td><td>CR</td><td>ISO 5.0</td><td>ISO 5.0</td><td>—</td><td></td></tr>
+              <tr><td class="param-col result-param">室内空气焓值</td><td>kJ/kg</td><td>43.57</td><td>43.57</td><td>—</td><td>由温度与含湿量计算</td></tr>
+              <tr class="group-row"><td colspan="6"><button class="group-toggle">−</button><b>冷热负荷</b><span>14项</span></td></tr>
+              <tr><td class="param-col result-param">围护结构冷负荷</td><td>kW</td><td>14.40</td><td>14.40</td><td class="total-cell">28.80</td><td>指标 50 W/m²</td></tr>
+              <tr><td class="param-col result-param">照明冷负荷</td><td>kW</td><td>5.76</td><td>5.76</td><td class="total-cell">11.52</td><td></td></tr>
+              <tr><td class="param-col result-param">工艺设备冷负荷</td><td>kW</td><td>11.52</td><td>11.52</td><td class="total-cell">23.04</td><td>面积指标法</td></tr>
+              <tr class="emphasis-row"><td class="param-col result-param">夏季室内总冷负荷</td><td>kW</td><td>31.68</td><td>31.68</td><td class="total-cell">63.36</td><td></td></tr>
+              <tr><td class="param-col result-param">单位面积冷负荷</td><td>W/m²</td><td>110.00</td><td>110.00</td><td>—</td><td></td></tr>
+              <tr class="group-row"><td colspan="6"><button class="group-toggle">−</button><b>风量计算</b><span>15项</span></td></tr>
+              <tr><td class="param-col result-param">室内正压风量</td><td>m³/h</td><td>1,466</td><td>1,466</td><td class="total-cell">2,933</td><td>经验公式与换气次数取大值</td></tr>
+              <tr><td class="param-col result-param">冷负荷所需 DCC 进风量</td><td>m³/h</td><td>31,366</td><td>31,366</td><td class="total-cell">62,733</td><td>送风温差 3℃</td></tr>
+              <tr class="emphasis-row"><td class="param-col result-param">设计送风风量</td><td>m³/h</td><td>32,833</td><td>32,833</td><td class="total-cell">65,665</td><td>洁净与冷负荷风量取大值</td></tr>
+              <tr><td class="param-col result-param">新风比</td><td>%</td><td>4.47</td><td>4.47</td><td>—</td><td></td></tr>
+              <tr class="group-row collapsed"><td colspan="6"><button class="group-toggle">＋</button><b>FFU 计算</b><span>17项 · 点击展开</span></td></tr>
+              <tr class="group-row collapsed"><td colspan="6"><button class="group-toggle">＋</button><b>干盘管计算</b><span>12项 · 点击展开</span></td></tr>
+              <tr class="group-row collapsed"><td colspan="6"><button class="group-toggle">＋</button><b>回风夹道与百叶</b><span>21项 · 点击展开</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-status"><span>当前显示 2 / 2 个房间</span><span>常用参数 37 / 全部参数 124</span><span>最后计算：刚刚</span></div>
+      </section>
+
+      <section class="screen" data-screen="import">
+        <div class="compact-heading">
+          <div><div class="breadcrumbs">项目库 / QZ-2026-017 / V2</div><h1>收资导入预览</h1></div>
+          <div class="heading-actions"><button class="button ghost">重新选择文件</button><button class="button primary">确认整批导入</button></div>
+        </div>
+
+        <div class="import-file card">
+          <div class="file-badge">XLSX</div>
+          <div><strong>QZ-2026-017_房间收资_2026-06-18.xlsx</strong><small>房间参数 · 2个房间列 · 项目信息不会被覆盖</small></div>
+          <span class="validation-ok">结构校验通过</span>
+        </div>
+
+        <div class="import-stat-grid">
+          <div class="import-stat"><span>新增房间</span><b>0</b><small>没有新的房间编号</small></div>
+          <div class="import-stat update"><span>全量覆盖</span><b>2</b><small>空白值也会清空原值</small></div>
+          <div class="import-stat"><span>冲突</span><b>0</b><small>房间编号均唯一</small></div>
+          <div class="import-stat"><span>错误</span><b>0</b><small>可执行整批导入</small></div>
+        </div>
+
+        <div class="card import-detail">
+          <div class="card-head"><div><span class="section-index">A</span><h2>覆盖明细</h2></div><span class="muted">导入后重新计算当前工作副本</span></div>
+          <div class="preview-table">
+            <div class="preview-row preview-header"><span>房间编号</span><span>名称</span><span>楼层 / 区域</span><span>变化字段</span><span>操作</span><span>状态</span></div>
+            <div class="preview-row"><span><b>2F-01</b></span><span>洁净室 1</span><span>2F / 洁净区</span><span><b>6项</b><small>面积、压差、设备负荷…</small></span><span>全量覆盖</span><span class="status-tag update">待确认</span></div>
+            <div class="preview-row"><span><b>2F-02</b></span><span>洁净室 2</span><span>2F / 洁净区</span><span><b>4项</b><small>湿度、人员、排风量…</small></span><span>全量覆盖</span><span class="status-tag update">待确认</span></div>
+          </div>
+        </div>
+
+        <div class="import-notice">
+          <strong>全量覆盖提醒</strong>
+          <p>同编号房间的全部可编辑参数将以本次文件为准，文件中的空白单元格也会清空系统原值。项目名称、城市和室外设计条件不会被覆盖。</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="drawer-scrim" id="drawerScrim"></div>
+  <aside class="room-drawer" id="roomDrawer" aria-label="房间参数编辑">
+    <div class="drawer-head"><div><span>编辑房间</span><h2>2F-01 · 洁净室 1</h2></div><button class="icon-button" id="closeDrawer" aria-label="关闭">×</button></div>
+    <div class="drawer-meta"><span>2F</span><span>洁净区</span><span>ISO 5.0</span><span class="changed">3项待应用</span></div>
+    <div class="drawer-body">
+      <section class="form-section open">
+        <button class="form-section-title"><span><b>01</b>基本信息</span><i>−</i></button>
+        <div class="form-grid">
+          <label><span>房间编号 <em>必填</em></span><input value="2F-01"></label>
+          <label><span>房间名称 <em>必填</em></span><input value="洁净室 1"></label>
+          <label><span>楼层</span><select><option>2F</option></select></label>
+          <label><span>区域</span><select><option>洁净区</option></select></label>
+          <label><span>面积 <small>m²</small></span><input value="288.00"></label>
+          <label><span>吊顶高 <small>m</small></span><input value="3.00"></label>
+        </div>
+      </section>
+      <section class="form-section open">
+        <button class="form-section-title"><span><b>02</b>室内条件</span><i>−</i></button>
+        <div class="form-grid">
+          <label><span>设计温度 <small>℃</small></span><div class="paired-input"><input value="23"><i>±</i><input value="2"></div></label>
+          <label><span>设计湿度 <small>%</small></span><div class="paired-input"><input value="45"><i>±</i><input value="5"></div></label>
+          <label><span>洁净等级</span><select><option>ISO 5.0</option></select></label>
+          <label><span>控制粒径 <small>μm</small></span><input value="0.5"></label>
+          <label><span>房间压差 <small>Pa</small></span><input class="modified" value="20"></label>
+        </div>
+      </section>
+      <section class="form-section"><button class="form-section-title"><span><b>03</b>洁净与排风</span><i>＋</i></button></section>
+      <section class="form-section"><button class="form-section-title"><span><b>04</b>负荷参数</span><i>＋</i></button></section>
+      <section class="form-section"><button class="form-section-title"><span><b>05</b>设备与构造</span><i>＋</i></button></section>
+    </div>
+    <div class="drawer-foot"><button class="button ghost" id="drawerCancel">取消</button><div class="drawer-foot-spacer"></div><button class="button ghost">复制新建</button><button class="button primary">应用并重算</button></div>
+  </aside>
+
+  <button class="tweaks-toggle" id="tweaksToggle">Tweaks</button>
+  <aside class="tweaks-panel" id="tweaksPanel">
+    <div class="tweaks-head"><b>Tweaks</b><button id="tweaksClose">×</button></div>
+    <label>数据密度<select id="densitySelect"><option value="comfortable">舒展</option><option value="standard" selected>标准</option><option value="compact">紧凑</option></select></label>
+    <label>视觉主题<select id="paletteSelect"><option value="process-blue">工艺蓝</option><option value="neutral-ink">中性墨</option><option value="high-contrast">高对比</option></select></label>
+  </aside>
+
+  <script src="app.js"></script>
+</body>
+</html>

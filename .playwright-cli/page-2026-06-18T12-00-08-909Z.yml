@@ -1,0 +1,315 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e6]:
+        - generic [ref=e7]: 暖通计算工作台
+        - generic [ref=e8]: 洁净区参数与选型依据
+      - generic [ref=e9]:
+        - generic [ref=e10]: 当前项目
+        - strong [ref=e11]: QZ-2026-017 · 常州洁净区改造
+        - generic [ref=e12]: V2 · 风量复核版
+        - generic [ref=e13]: 规则 v1.0
+      - generic [ref=e14]:
+        - generic [ref=e15]: 有未保存修改
+        - button "导出结果" [ref=e17] [cursor=pointer]
+        - button "保存方案" [ref=e18] [cursor=pointer]
+    - complementary [ref=e19]:
+      - navigation "主导航" [ref=e20]:
+        - button "01 项目库" [ref=e21] [cursor=pointer]:
+          - generic [ref=e22]: "01"
+          - generic [ref=e23]: 项目库
+        - button "02 需求汇总" [ref=e24] [cursor=pointer]:
+          - generic [ref=e25]: "02"
+          - generic [ref=e26]: 需求汇总
+        - button "03 计算总表" [ref=e27] [cursor=pointer]:
+          - generic [ref=e28]: "03"
+          - generic [ref=e29]: 计算总表
+        - button "04 收资导入" [ref=e30] [cursor=pointer]:
+          - generic [ref=e31]: "04"
+          - generic [ref=e32]: 收资导入
+      - generic [ref=e33]:
+        - generic [ref=e36]:
+          - strong [ref=e37]: 编辑锁已获取
+          - generic [ref=e38]: 28:42 后自动释放
+        - button "? 填写说明" [ref=e39] [cursor=pointer]:
+          - generic [ref=e40]: "?"
+          - generic [ref=e41]: 填写说明
+    - main [ref=e42]:
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - generic [ref=e45]:
+            - generic [ref=e46]: 项目库 / QZ-2026-017 / V2
+            - heading "计算总表" [level=1] [ref=e47]
+          - generic [ref=e48]:
+            - button "编辑当前房间" [ref=e49] [cursor=pointer]
+            - button "复制新建房间" [ref=e50] [cursor=pointer]
+            - button "新增房间" [ref=e51] [cursor=pointer]
+        - generic [ref=e52]:
+          - generic [ref=e53]:
+            - generic [ref=e54]: 参数
+            - textbox "参数" [ref=e55]:
+              - /placeholder: 搜索参数名称
+          - combobox [ref=e56]:
+            - option "全部楼层" [selected]
+            - option "2F"
+          - combobox [ref=e57]:
+            - option "全部区域" [selected]
+            - option "洁净区"
+          - generic [ref=e58]:
+            - button "常用参数" [ref=e59] [cursor=pointer]
+            - button "全部参数" [ref=e60] [cursor=pointer]
+          - generic [ref=e61]: 输入
+          - generic [ref=e63]: 计算结果
+          - generic [ref=e65]: 人工覆盖
+        - table [ref=e68]:
+          - rowgroup [ref=e69]:
+            - row "参数 单位 2F-01 洁净室 1 编辑 2F-02 洁净室 2 编辑 项目合计 说明" [ref=e70]:
+              - columnheader "参数" [ref=e71]
+              - columnheader "单位" [ref=e72]
+              - columnheader "2F-01 洁净室 1 编辑" [ref=e73]:
+                - text: 2F-01
+                - generic [ref=e74]: 洁净室 1
+                - button "编辑" [ref=e75] [cursor=pointer]
+              - columnheader "2F-02 洁净室 2 编辑" [ref=e76]:
+                - text: 2F-02
+                - generic [ref=e77]: 洁净室 2
+                - button "编辑" [ref=e78] [cursor=pointer]
+              - columnheader "项目合计" [ref=e79]
+              - columnheader "说明" [ref=e80]
+          - rowgroup [ref=e81]:
+            - row "− 基础参数8项" [ref=e82]:
+              - cell "− 基础参数8项" [ref=e83]:
+                - button "−" [ref=e84] [cursor=pointer]
+                - text: 基础参数8项
+            - row "面积 m² 288.00 288.00 576.00" [ref=e85]:
+              - cell "面积" [ref=e86]
+              - cell "m²" [ref=e87]
+              - cell "288.00" [ref=e88]
+              - cell "288.00" [ref=e89]
+              - cell "576.00" [ref=e90]
+              - cell [ref=e91]
+            - row "吊顶高 m 3.00 3.00 —" [ref=e92]:
+              - cell "吊顶高" [ref=e93]
+              - cell "m" [ref=e94]
+              - cell "3.00" [ref=e95]
+              - cell "3.00" [ref=e96]
+              - cell "—" [ref=e97]
+              - cell [ref=e98]
+            - row "设计温度 ℃ 23 ± 2 23 ± 2 —" [ref=e99]:
+              - cell "设计温度" [ref=e100]
+              - cell "℃" [ref=e101]
+              - cell "23 ± 2" [ref=e102]
+              - cell "23 ± 2" [ref=e103]
+              - cell "—" [ref=e104]
+              - cell [ref=e105]
+            - row "设计湿度 % 45 ± 5 45 ± 5 —" [ref=e106]:
+              - cell "设计湿度" [ref=e107]
+              - cell "%" [ref=e108]
+              - cell "45 ± 5" [ref=e109]
+              - cell "45 ± 5" [ref=e110]
+              - cell "—" [ref=e111]
+              - cell [ref=e112]
+            - row "洁净等级 CR ISO 5.0 ISO 5.0 —" [ref=e113]:
+              - cell "洁净等级" [ref=e114]
+              - cell "CR" [ref=e115]
+              - cell "ISO 5.0" [ref=e116]
+              - cell "ISO 5.0" [ref=e117]
+              - cell "—" [ref=e118]
+              - cell [ref=e119]
+            - row "室内空气焓值 kJ/kg 43.57 43.57 — 由温度与含湿量计算" [ref=e120]:
+              - cell "室内空气焓值" [ref=e121]
+              - cell "kJ/kg" [ref=e122]
+              - cell "43.57" [ref=e123]
+              - cell "43.57" [ref=e124]
+              - cell "—" [ref=e125]
+              - cell "由温度与含湿量计算" [ref=e126]
+            - row "− 冷热负荷14项" [ref=e127]:
+              - cell "− 冷热负荷14项" [ref=e128]:
+                - button "−" [ref=e129] [cursor=pointer]
+                - text: 冷热负荷14项
+            - row "围护结构冷负荷 kW 14.40 14.40 28.80 指标 50 W/m²" [ref=e130]:
+              - cell "围护结构冷负荷" [ref=e131]
+              - cell "kW" [ref=e132]
+              - cell "14.40" [ref=e133]
+              - cell "14.40" [ref=e134]
+              - cell "28.80" [ref=e135]
+              - cell "指标 50 W/m²" [ref=e136]
+            - row "照明冷负荷 kW 5.76 5.76 11.52" [ref=e137]:
+              - cell "照明冷负荷" [ref=e138]
+              - cell "kW" [ref=e139]
+              - cell "5.76" [ref=e140]
+              - cell "5.76" [ref=e141]
+              - cell "11.52" [ref=e142]
+              - cell [ref=e143]
+            - row "工艺设备冷负荷 kW 11.52 11.52 23.04 面积指标法" [ref=e144]:
+              - cell "工艺设备冷负荷" [ref=e145]
+              - cell "kW" [ref=e146]
+              - cell "11.52" [ref=e147]
+              - cell "11.52" [ref=e148]
+              - cell "23.04" [ref=e149]
+              - cell "面积指标法" [ref=e150]
+            - row "夏季室内总冷负荷 kW 31.68 31.68 63.36" [ref=e151]:
+              - cell "夏季室内总冷负荷" [ref=e152]
+              - cell "kW" [ref=e153]
+              - cell "31.68" [ref=e154]
+              - cell "31.68" [ref=e155]
+              - cell "63.36" [ref=e156]
+              - cell [ref=e157]
+            - row "单位面积冷负荷 W/m² 110.00 110.00 —" [ref=e158]:
+              - cell "单位面积冷负荷" [ref=e159]
+              - cell "W/m²" [ref=e160]
+              - cell "110.00" [ref=e161]
+              - cell "110.00" [ref=e162]
+              - cell "—" [ref=e163]
+              - cell [ref=e164]
+            - row "− 风量计算15项" [ref=e165]:
+              - cell "− 风量计算15项" [ref=e166]:
+                - button "−" [ref=e167] [cursor=pointer]
+                - text: 风量计算15项
+            - row "室内正压风量 m³/h 1,466 1,466 2,933 经验公式与换气次数取大值" [ref=e168]:
+              - cell "室内正压风量" [ref=e169]
+              - cell "m³/h" [ref=e170]
+              - cell "1,466" [ref=e171]
+              - cell "1,466" [ref=e172]
+              - cell "2,933" [ref=e173]
+              - cell "经验公式与换气次数取大值" [ref=e174]
+            - row "冷负荷所需 DCC 进风量 m³/h 31,366 31,366 62,733 送风温差 3℃" [ref=e175]:
+              - cell "冷负荷所需 DCC 进风量" [ref=e176]
+              - cell "m³/h" [ref=e177]
+              - cell "31,366" [ref=e178]
+              - cell "31,366" [ref=e179]
+              - cell "62,733" [ref=e180]
+              - cell "送风温差 3℃" [ref=e181]
+            - row "设计送风风量 m³/h 32,833 32,833 65,665 洁净与冷负荷风量取大值" [ref=e182]:
+              - cell "设计送风风量" [ref=e183]
+              - cell "m³/h" [ref=e184]
+              - cell "32,833" [ref=e185]
+              - cell "32,833" [ref=e186]
+              - cell "65,665" [ref=e187]
+              - cell "洁净与冷负荷风量取大值" [ref=e188]
+            - row "新风比 % 4.47 4.47 —" [ref=e189]:
+              - cell "新风比" [ref=e190]
+              - cell "%" [ref=e191]
+              - cell "4.47" [ref=e192]
+              - cell "4.47" [ref=e193]
+              - cell "—" [ref=e194]
+              - cell [ref=e195]
+            - row "＋ FFU 计算17项 · 点击展开" [ref=e196]:
+              - cell "＋ FFU 计算17项 · 点击展开" [ref=e197]:
+                - button "＋" [ref=e198] [cursor=pointer]
+                - text: FFU 计算17项 · 点击展开
+            - row "＋ 干盘管计算12项 · 点击展开" [ref=e199]:
+              - cell "＋ 干盘管计算12项 · 点击展开" [ref=e200]:
+                - button "＋" [ref=e201] [cursor=pointer]
+                - text: 干盘管计算12项 · 点击展开
+            - row "＋ 回风夹道与百叶21项 · 点击展开" [ref=e202]:
+              - cell "＋ 回风夹道与百叶21项 · 点击展开" [ref=e203]:
+                - button "＋" [ref=e204] [cursor=pointer]
+                - text: 回风夹道与百叶21项 · 点击展开
+        - generic [ref=e205]:
+          - generic [ref=e206]: 当前显示 2 / 2 个房间
+          - generic [ref=e207]: 常用参数 37 / 全部参数 124
+          - generic [ref=e208]: 最后计算：刚刚
+  - complementary "房间参数编辑" [ref=e210]:
+    - generic [ref=e211]:
+      - generic [ref=e212]:
+        - text: 编辑房间
+        - heading "2F-01 · 洁净室 1" [level=2] [ref=e213]
+      - button "关闭" [ref=e214] [cursor=pointer]: ×
+    - generic [ref=e215]:
+      - generic [ref=e216]: 2F
+      - generic [ref=e217]: 洁净区
+      - generic [ref=e218]: ISO 5.0
+      - generic [ref=e219]: 3项待应用
+    - generic [ref=e220]:
+      - generic [ref=e221]:
+        - button "01 基本信息 −" [ref=e222] [cursor=pointer]:
+          - generic [ref=e223]:
+            - generic [ref=e224]: "01"
+            - text: 基本信息
+          - generic [ref=e225]: −
+        - generic [ref=e226]:
+          - generic [ref=e227]:
+            - generic [ref=e228]:
+              - text: 房间编号
+              - emphasis [ref=e229]: 必填
+            - textbox "房间编号 必填" [ref=e230]: 2F-01
+          - generic [ref=e231]:
+            - generic [ref=e232]:
+              - text: 房间名称
+              - emphasis [ref=e233]: 必填
+            - textbox "房间名称 必填" [ref=e234]: 洁净室 1
+          - generic [ref=e235]:
+            - generic [ref=e236]: 楼层
+            - combobox "楼层" [ref=e237]:
+              - option "2F" [selected]
+          - generic [ref=e238]:
+            - generic [ref=e239]: 区域
+            - combobox "区域" [ref=e240]:
+              - option "洁净区" [selected]
+          - generic [ref=e241]:
+            - generic [ref=e242]:
+              - text: 面积
+              - generic [ref=e243]: m²
+            - textbox "面积 m²" [ref=e244]: "288.00"
+          - generic [ref=e245]:
+            - generic [ref=e246]:
+              - text: 吊顶高
+              - generic [ref=e247]: m
+            - textbox "吊顶高 m" [ref=e248]: "3.00"
+      - generic [ref=e249]:
+        - button "02 室内条件 −" [ref=e250] [cursor=pointer]:
+          - generic [ref=e251]:
+            - generic [ref=e252]: "02"
+            - text: 室内条件
+          - generic [ref=e253]: −
+        - generic [ref=e254]:
+          - generic [ref=e255]:
+            - generic [ref=e256]:
+              - text: 设计温度
+              - generic [ref=e257]: ℃
+            - generic [ref=e258]:
+              - textbox "设计温度 ℃ ± 2" [ref=e259]: "23"
+              - generic [ref=e260]: ±
+              - textbox [ref=e261]: "2"
+          - generic [ref=e262]:
+            - generic [ref=e263]:
+              - text: 设计湿度
+              - generic [ref=e264]: "%"
+            - generic [ref=e265]:
+              - textbox "设计湿度 % ± 5" [ref=e266]: "45"
+              - generic [ref=e267]: ±
+              - textbox [ref=e268]: "5"
+          - generic [ref=e269]:
+            - generic [ref=e270]: 洁净等级
+            - combobox "洁净等级" [ref=e271]:
+              - option "ISO 5.0" [selected]
+          - generic [ref=e272]:
+            - generic [ref=e273]:
+              - text: 控制粒径
+              - generic [ref=e274]: μm
+            - textbox "控制粒径 μm" [ref=e275]: "0.5"
+          - generic [ref=e276]:
+            - generic [ref=e277]:
+              - text: 房间压差
+              - generic [ref=e278]: Pa
+            - textbox "房间压差 Pa" [ref=e279]: "20"
+      - button "03 洁净与排风 ＋" [ref=e281] [cursor=pointer]:
+        - generic [ref=e282]:
+          - generic [ref=e283]: "03"
+          - text: 洁净与排风
+        - generic [ref=e284]: ＋
+      - button "04 负荷参数 ＋" [ref=e286] [cursor=pointer]:
+        - generic [ref=e287]:
+          - generic [ref=e288]: "04"
+          - text: 负荷参数
+        - generic [ref=e289]: ＋
+      - button "05 设备与构造 ＋" [ref=e291] [cursor=pointer]:
+        - generic [ref=e292]:
+          - generic [ref=e293]: "05"
+          - text: 设备与构造
+        - generic [ref=e294]: ＋
+    - generic [ref=e295]:
+      - button "取消" [ref=e296] [cursor=pointer]
+      - button "复制新建" [ref=e298] [cursor=pointer]
+      - button "应用并重算" [ref=e299] [cursor=pointer]

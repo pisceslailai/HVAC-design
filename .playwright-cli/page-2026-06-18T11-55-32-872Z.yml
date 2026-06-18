@@ -1,0 +1,217 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e7]: 暖通计算工作台
+      - generic [ref=e8]:
+        - generic [ref=e9]: 有未保存修改
+        - button "导出结果" [ref=e11] [cursor=pointer]
+        - button "保存方案" [ref=e12] [cursor=pointer]
+    - complementary [ref=e13]:
+      - navigation "主导航" [ref=e14]:
+        - button "01 项目库" [ref=e15] [cursor=pointer]:
+          - generic [ref=e16]: "01"
+          - generic [ref=e17]: 项目库
+        - button "02 需求汇总" [ref=e18] [cursor=pointer]:
+          - generic [ref=e19]: "02"
+          - generic [ref=e20]: 需求汇总
+        - button "03 计算总表" [ref=e21] [cursor=pointer]:
+          - generic [ref=e22]: "03"
+          - generic [ref=e23]: 计算总表
+        - button "04 收资导入" [ref=e24] [cursor=pointer]:
+          - generic [ref=e25]: "04"
+          - generic [ref=e26]: 收资导入
+      - generic [ref=e27]:
+        - generic [ref=e30]:
+          - strong [ref=e31]: 编辑锁已获取
+          - generic [ref=e32]: 28:42 后自动释放
+        - button "? 填写说明" [ref=e33] [cursor=pointer]:
+          - generic [ref=e34]: "?"
+          - generic [ref=e35]: 填写说明
+    - main [ref=e36]:
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - generic [ref=e40]: PROJECT LIBRARY
+            - heading "项目库" [level=1] [ref=e41]
+            - paragraph [ref=e42]: 集中保存项目、房间与方案版本。项目编号在项目库内唯一。
+          - generic [ref=e43]:
+            - button "从收资文件新建" [ref=e44] [cursor=pointer]
+            - button "新建项目" [ref=e45] [cursor=pointer]
+        - generic [ref=e46]:
+          - generic [ref=e47]:
+            - generic [ref=e48]: 查找
+            - textbox "查找" [ref=e49]:
+              - /placeholder: 项目编号或项目名称
+          - generic "项目筛选" [ref=e50]:
+            - button "全部项目 3" [ref=e51] [cursor=pointer]
+            - button "最近编辑" [ref=e52] [cursor=pointer]
+          - combobox [ref=e53]:
+            - option "按更新时间排序" [selected]
+        - generic [ref=e54]:
+          - generic [ref=e55]:
+            - generic [ref=e56]: 项目
+            - generic [ref=e57]: 城市
+            - generic [ref=e58]: 房间
+            - generic [ref=e59]: 方案版本
+            - generic [ref=e60]: 最近更新
+          - button "QZ-2026-017 常州洁净区改造 当前工作项目 · 示例数据来自权威模板 常州 标准气象值 2 2F · 洁净区 V2 风量复核版 今天 15:42 有未保存修改 打开" [ref=e61] [cursor=pointer]:
+            - generic [ref=e62]:
+              - generic [ref=e63]: QZ-2026-017
+              - strong [ref=e64]: 常州洁净区改造
+              - generic [ref=e65]: 当前工作项目 · 示例数据来自权威模板
+            - generic [ref=e66]:
+              - generic [ref=e67]: 常州
+              - generic [ref=e68]: 标准气象值
+            - generic [ref=e69]:
+              - generic [ref=e70]: "2"
+              - generic [ref=e71]: 2F · 洁净区
+            - generic [ref=e72]:
+              - generic [ref=e73]: V2
+              - generic [ref=e74]: 风量复核版
+            - generic [ref=e75]:
+              - generic [ref=e76]: 今天 15:42
+              - generic [ref=e77]: 有未保存修改
+            - generic [ref=e78]: 打开
+          - button "QZ-2026-009 示例项目：生产区扩建 用于界面状态展示 苏州 标准气象值 48 3个楼层 V4 施工图版 06-16 10:08 已保存 打开" [ref=e79] [cursor=pointer]:
+            - generic [ref=e80]:
+              - generic [ref=e81]: QZ-2026-009
+              - strong [ref=e82]: 示例项目：生产区扩建
+              - generic [ref=e83]: 用于界面状态展示
+            - generic [ref=e84]:
+              - generic [ref=e85]: 苏州
+              - generic [ref=e86]: 标准气象值
+            - generic [ref=e87]:
+              - generic [ref=e88]: "48"
+              - generic [ref=e89]: 3个楼层
+            - generic [ref=e90]:
+              - generic [ref=e91]: V4
+              - generic [ref=e92]: 施工图版
+            - generic [ref=e93]:
+              - generic [ref=e94]: 06-16 10:08
+              - generic [ref=e95]: 已保存
+            - generic [ref=e96]: 打开
+          - button "QZ-2026-003 示例项目：研发楼洁净区 用于界面状态展示 无锡 1项人工覆盖 126 5个楼层 V7 外审回复版 06-12 17:25 已保存 打开" [ref=e97] [cursor=pointer]:
+            - generic [ref=e98]:
+              - generic [ref=e99]: QZ-2026-003
+              - strong [ref=e100]: 示例项目：研发楼洁净区
+              - generic [ref=e101]: 用于界面状态展示
+            - generic [ref=e102]:
+              - generic [ref=e103]: 无锡
+              - generic [ref=e104]: 1项人工覆盖
+            - generic [ref=e105]:
+              - generic [ref=e106]: "126"
+              - generic [ref=e107]: 5个楼层
+            - generic [ref=e108]:
+              - generic [ref=e109]: V7
+              - generic [ref=e110]: 外审回复版
+            - generic [ref=e111]:
+              - generic [ref=e112]: 06-12 17:25
+              - generic [ref=e113]: 已保存
+            - generic [ref=e114]: 打开
+        - generic [ref=e115]:
+          - generic [ref=e116]: 3 个项目
+          - generic [ref=e117]: 本界面为交互参考，非最终视觉规范
+  - complementary "房间参数编辑" [ref=e118]:
+    - generic [ref=e119]:
+      - generic [ref=e120]:
+        - text: 编辑房间
+        - heading "2F-01 · 洁净室 1" [level=2] [ref=e121]
+      - button "关闭" [ref=e122] [cursor=pointer]: ×
+    - generic [ref=e123]:
+      - generic [ref=e124]: 2F
+      - generic [ref=e125]: 洁净区
+      - generic [ref=e126]: ISO 5.0
+      - generic [ref=e127]: 3项待应用
+    - generic [ref=e128]:
+      - generic [ref=e129]:
+        - button "01 基本信息 −" [ref=e130] [cursor=pointer]:
+          - generic [ref=e131]:
+            - generic [ref=e132]: "01"
+            - text: 基本信息
+          - generic [ref=e133]: −
+        - generic [ref=e134]:
+          - generic [ref=e135]:
+            - generic [ref=e136]:
+              - text: 房间编号
+              - emphasis [ref=e137]: 必填
+            - textbox "房间编号 必填" [ref=e138]: 2F-01
+          - generic [ref=e139]:
+            - generic [ref=e140]:
+              - text: 房间名称
+              - emphasis [ref=e141]: 必填
+            - textbox "房间名称 必填" [ref=e142]: 洁净室 1
+          - generic [ref=e143]:
+            - generic [ref=e144]: 楼层
+            - combobox "楼层" [ref=e145]:
+              - option "2F" [selected]
+          - generic [ref=e146]:
+            - generic [ref=e147]: 区域
+            - combobox "区域" [ref=e148]:
+              - option "洁净区" [selected]
+          - generic [ref=e149]:
+            - generic [ref=e150]:
+              - text: 面积
+              - generic [ref=e151]: m²
+            - textbox "面积 m²" [ref=e152]: "288.00"
+          - generic [ref=e153]:
+            - generic [ref=e154]:
+              - text: 吊顶高
+              - generic [ref=e155]: m
+            - textbox "吊顶高 m" [ref=e156]: "3.00"
+      - generic [ref=e157]:
+        - button "02 室内条件 −" [ref=e158] [cursor=pointer]:
+          - generic [ref=e159]:
+            - generic [ref=e160]: "02"
+            - text: 室内条件
+          - generic [ref=e161]: −
+        - generic [ref=e162]:
+          - generic [ref=e163]:
+            - generic [ref=e164]:
+              - text: 设计温度
+              - generic [ref=e165]: ℃
+            - generic [ref=e166]:
+              - textbox "设计温度 ℃ ± 2" [ref=e167]: "23"
+              - generic [ref=e168]: ±
+              - textbox [ref=e169]: "2"
+          - generic [ref=e170]:
+            - generic [ref=e171]:
+              - text: 设计湿度
+              - generic [ref=e172]: "%"
+            - generic [ref=e173]:
+              - textbox "设计湿度 % ± 5" [ref=e174]: "45"
+              - generic [ref=e175]: ±
+              - textbox [ref=e176]: "5"
+          - generic [ref=e177]:
+            - generic [ref=e178]: 洁净等级
+            - combobox "洁净等级" [ref=e179]:
+              - option "ISO 5.0" [selected]
+          - generic [ref=e180]:
+            - generic [ref=e181]:
+              - text: 控制粒径
+              - generic [ref=e182]: μm
+            - textbox "控制粒径 μm" [ref=e183]: "0.5"
+          - generic [ref=e184]:
+            - generic [ref=e185]:
+              - text: 房间压差
+              - generic [ref=e186]: Pa
+            - textbox "房间压差 Pa" [ref=e187]: "20"
+      - button "03 洁净与排风 ＋" [ref=e189] [cursor=pointer]:
+        - generic [ref=e190]:
+          - generic [ref=e191]: "03"
+          - text: 洁净与排风
+        - generic [ref=e192]: ＋
+      - button "04 负荷参数 ＋" [ref=e194] [cursor=pointer]:
+        - generic [ref=e195]:
+          - generic [ref=e196]: "04"
+          - text: 负荷参数
+        - generic [ref=e197]: ＋
+      - button "05 设备与构造 ＋" [ref=e199] [cursor=pointer]:
+        - generic [ref=e200]:
+          - generic [ref=e201]: "05"
+          - text: 设备与构造
+        - generic [ref=e202]: ＋
+    - generic [ref=e203]:
+      - button "取消" [ref=e204] [cursor=pointer]
+      - button "复制新建" [ref=e206] [cursor=pointer]
+      - button "应用并重算" [ref=e207] [cursor=pointer]
+  - button "Tweaks" [ref=e208] [cursor=pointer]
