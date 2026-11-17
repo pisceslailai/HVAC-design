@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>余热回收快速测算 · 离线单页版</title>
+<style>
+:root{color-scheme:dark;--bg:#0b0e13;--panel:#121820;--card:#1a212b;--field:#0d1219;--line:#303a47;--text:#f0f4f8;--sub:#a6b1c0;--muted:#8493a7;--amber:#ffbd61;--cyan:#61cde8;--green:#67dba7;--red:#ff8a8a;--shadow:0 18px 48px #0007}
+*[hidden]{display:none!important}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% 0%,#1c2634 0%,#0b0e13 45%);font-family:system-ui,-apple-system,"Microsoft YaHei","PingFang SC",sans-serif;color:var(--text);font-size:14px;line-height:1.55}button,input,select{font:inherit}button{cursor:pointer}main{width:min(1420px,calc(100% - 28px));margin:16px auto;min-height:calc(100vh - 32px);background:#10151c;border:1px solid var(--line);border-radius:17px;box-shadow:var(--shadow);overflow:hidden}.header{padding:22px 26px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;align-items:center;background:#131922}h1{font-size:clamp(24px,2.1vw,32px);line-height:1.2;margin:0 0 8px;letter-spacing:.01em}.logo{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:9px;background:linear-gradient(135deg,#ffd785,#ed9741);color:#211409;margin-right:12px}.subtitle{margin:0;color:var(--sub);font-size:13px}.pill{border:1px solid #435063;background:#1b2430;padding:8px 11px;border-radius:8px;color:var(--cyan);font-size:12px;white-space:nowrap}.layout{display:grid;grid-template-columns:215px minmax(0,1fr)}nav{padding:18px 12px;background:#0c1117;border-right:1px solid var(--line)}nav .hint{font-size:11px;letter-spacing:.1em;color:var(--muted);margin:4px 12px 12px}nav button{width:100%;border:1px solid #2b3440;background:#141a22;color:var(--sub);border-radius:9px;margin-bottom:10px;padding:12px;text-align:left;min-height:48px}nav button:hover{border-color:var(--cyan)}nav button.active{background:#2b2924;border-color:#d89c4e;color:#fff;box-shadow:inset 3px 0 var(--amber)}.workspace{display:grid;grid-template-columns:minmax(0,1fr) 355px;gap:16px;padding:18px;align-items:start}.inputs{min-width:0}.twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px}.card,.results{border:1px solid #2c3745;border-radius:11px;background:linear-gradient(180deg,#1b232d,#161d26);padding:16px;min-width:0}.card h2,.results h2{margin:0 0 15px;padding-bottom:10px;border-bottom:1px solid #35404d;font-size:15px;display:flex;align-items:center;gap:9px}.dot{width:9px;height:9px;border-radius:2px;transform:rotate(45deg);background:var(--amber)}.dot.cold{background:var(--cyan)}.dot.ok{background:var(--green)}.card.settings{margin-top:14px}.field{margin:0 0 12px}.field:last-child{margin-bottom:0}.field label{display:block;color:#c1cbd6;font-size:12px;margin-bottom:6px}.field small,.note{display:block;color:var(--muted);font-size:11px;line-height:1.55;margin-top:5px}.inputrow{display:flex;gap:8px;align-items:center}.inputrow input,.inputrow select,.field>select{min-width:0;width:100%;border:1px solid #3a4756;background:var(--field);color:#fff;border-radius:7px;padding:9px 10px;outline:none;min-height:39px}.inputrow input:focus,.inputrow select:focus,.field select:focus{border-color:var(--cyan);box-shadow:0 0 0 2px #61cde833}.inputrow input:disabled{color:#a9b6c4;background:#202a35;border-style:dashed}.inputrow .unit{flex:0 0 66px;text-align:right;color:var(--muted);font-size:11px;white-space:nowrap}.field select{width:100%;background:var(--field);color:#fff;border:1px solid #3a4756;border-radius:7px;padding:9px}.radio-row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 12px}.radio-row label{font-size:12px;flex:1;min-width:110px;background:#101720;border:1px solid #344153;border-radius:8px;padding:10px;color:#cbd5e1;cursor:pointer}.radio-row label:has(input:checked){border-color:#eeb462;background:#30281d;color:#ffdb9e}.radio-row input{accent-color:var(--amber);margin:0 5px 0 0}.description{font-size:11px;color:var(--muted);line-height:1.6}.subsection{margin-top:11px;padding:11px;background:#111821;border:1px solid #313d4a;border-radius:8px}.subsection-title{font-weight:700;color:#c6d4e2;font-size:12px;margin-bottom:10px}.mini-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 12px}.fold{border:1px solid #34404e;background:#111821;border-radius:9px;margin-top:12px}.fold summary{cursor:pointer;padding:11px 12px;font-weight:600;color:#bdcbd8}.fold .fold-body{padding:0 12px 12px}.results{background:linear-gradient(170deg,#16251f,#0f171d 55%);border-color:#315246;position:sticky;top:15px}.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.metric{padding:11px;border:1px solid #2d3c48;background:#121c25;border-radius:8px;min-height:95px}.metric .n{font-weight:800;color:var(--cyan);font-size:clamp(22px,2.1vw,28px);line-height:1.2;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}.metric .n.green{color:var(--green)}.metric .n.amber{color:var(--amber)}.metric .tag{color:var(--sub);font-size:11px;margin-top:9px}.metric .detail{color:var(--muted);font-size:11px}.detail-list{border-top:1px solid #2b3e46;margin-top:16px;padding-top:11px}.detail-row{display:flex;gap:13px;justify-content:space-between;align-items:baseline;padding:7px 0;border-bottom:1px solid #29363f}.detail-row span{font-size:12px;color:var(--sub)}.detail-row strong{font-size:12px;text-align:right;font-variant-numeric:tabular-nums}.messages{display:grid;gap:9px;margin-bottom:12px}.message{border-radius:8px;padding:10px 11px;line-height:1.6;font-size:12px}.message.error{background:#3f2024;border:1px solid #83454a;color:#ffd4d4}.message.warn{background:#352c1e;border:1px solid #735937;color:#ffe0a4}.message.info{background:#1b2b36;border:1px solid #34546a;color:#bce6f7}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.actions button{border:1px solid #52616f;border-radius:8px;background:#20303d;color:#def6ff;padding:9px 13px;flex:1}.actions button:hover{background:#2c4351}.actions button:disabled{opacity:.4;cursor:not-allowed}.foot{padding:0 20px 18px;color:var(--muted);font-size:11px;text-align:right}.heatbar{display:flex;height:19px;overflow:hidden;border-radius:5px;margin-top:13px;background:#25303b}.heatbar .part1{background:linear-gradient(90deg,#e78e41,#ffbd61)}.heatbar .part2{background:linear-gradient(90deg,#5dbfe4,#69e1c2)}.heatbar .part3{background:repeating-linear-gradient(45deg,#2f3c47,#2f3c47 5px,#202b34 5px,#202b34 10px)}.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:11px;color:var(--sub);margin:7px 0}.legend b{font-weight:500}.empty{color:var(--sub);font-size:12px;padding:16px;border:1px dashed #415265;border-radius:8px}.copy-ok{color:var(--green);font-size:11px;margin-top:8px}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}@media(max-width:1180px){.workspace{grid-template-columns:1fr}.results{position:static}}@media(max-width:780px){main{width:100%;margin:0;border:0;border-radius:0}.header{padding:18px 14px;align-items:flex-start}.pill{display:none}.layout{grid-template-columns:1fr}nav{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;border-right:0;border-bottom:1px solid var(--line);padding:10px}nav .hint{display:none}nav button{flex:0 0 auto;width:auto;margin:0;padding:9px 11px;white-space:nowrap;min-height:43px}.workspace{padding:12px;display:flex;flex-direction:column}.inputs,.results{width:100%}.twocol{grid-template-columns:1fr}.card,.results{padding:14px}.foot{text-align:left}.mobile-sticky{display:flex!important}}@media(max-width:420px){.mini-grid{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr 1fr}.metric .n{font-size:21px}}.mobile-sticky{display:none;position:sticky;top:0;z-index:10;background:#172823;border-bottom:1px solid #3a705c;padding:8px 14px;justify-content:space-between;gap:10px;color:var(--green);font-weight:700;font-size:12px}
+</style>
+</head>
+<body>
+<main>
+<header class="header"><div><h1><span class="logo">热</span>余热回收快速测算</h1><p class="subtitle">工程初算｜热源可回收量 · 冷端利用能力 · 年有效热量 · 能源折算</p></div><span class="pill">单页离线版 · 无外部依赖</span></header>
+<div class="mobile-sticky" id="mobileSummary"><span>有效回收热功率</span><span id="mobileKw">—</span></div>
+<div class="layout">
+<nav id="modeNav" aria-label="换热场景"><div class="hint">换热场景</div><button class="active" data-mode="gas-water">废气 → 水</button><button data-mode="steam-water">蒸汽 → 水</button><button data-mode="water-water">水 / 导热油 → 水</button><button data-mode="gas-air">废气 → 空气</button></nav>
+<div class="workspace">
+<section class="inputs" aria-label="计算参数">
+<div class="twocol"><div class="card"><h2><span class="dot"></span>热源侧（放热）</h2><div id="hotFields"></div></div><div class="card"><h2><span class="dot cold"></span>冷端侧（吸热）</h2><div id="coldFields"></div></div></div>
+<div class="card settings"><h2><span class="dot"></span>计算口径与运行参数</h2>
+<div class="subsection-title">热源出口温度的含义</div>
+<div class="radio-row"><label><input name="basis" type="radio" value="design" checked>设计 / 预估出口温度</label><label><input name="basis" type="radio" value="measured">实测出口温度</label></div>
+<div class="description" id="basisDesc">按预估热源温降计算资源量，再乘工程可利用系数。该系数是初算折减，不能代表换热器热工效能。</div>
+<div class="mini-grid" style="margin-top:13px">
+<div class="field"><label id="factorLabel" for="efficiency">工程可利用系数</label><div class="inputrow"><input id="efficiency" type="number" value="75" min="1" max="100" step="1"><span class="unit">%</span></div></div>
+<div class="field"><label for="approach">最小端温差（初算约束）</label><div class="inputrow"><input id="approach" type="number" value="5" min="0" max="100" step="1"><span class="unit">℃</span></div></div>
+<div class="field"><label for="runHours">年可运行小时</label><div class="inputrow"><input id="runHours" type="number" value="8000" min="0" max="8760" step="100"><span class="unit">h/年</span></div></div>
+<div class="field"><label for="loadMatch">冷热负荷匹配率</label><div class="inputrow"><input id="loadMatch" type="number" value="100" min="0" max="100" step="5"><span class="unit">%</span></div></div>
+</div>
+<div class="description">年有效利用热量 = 有效回收功率 × 年运行小时 × 负荷匹配率。输入的所有温度和流量均按同一稳定工况处理。</div>
+<details class="fold"><summary>高级参数｜能源折算与假设</summary><div class="fold-body">
+<div class="mini-grid">
+<div class="field"><label for="coalFactor">热量折标煤系数</label><div class="inputrow"><input id="coalFactor" type="number" value="0.1229" min="0" max="10" step="0.0001"><span class="unit">tce/MWh</span></div></div>
+<div class="field"><label for="co2Factor">标煤折CO₂假设系数</label><div class="inputrow"><input id="co2Factor" type="number" value="2.66" min="0" max="20" step="0.01"><span class="unit">tCO₂/tce</span></div></div>
+<div class="field"><label for="replacement">热量替代方式</label><select id="replacement"><option value="none">仅热量 / 标煤折算</option><option value="gas">替代天然气供热</option><option value="electric">替代电加热</option></select></div>
+<div class="field" id="boilerEffWrap" hidden><label for="boilerEff">被替代供热设备效率</label><div class="inputrow"><input id="boilerEff" type="number" value="90" min="1" max="100" step="1"><span class="unit">%</span></div></div>
+<div class="field" id="gasHeatWrap" hidden><label for="gasHeat">天然气低位热值</label><div class="inputrow"><input id="gasHeat" type="number" value="9.5" min="1" max="20" step="0.1"><span class="unit">kWh/Nm³</span></div></div>
+</div><div class="description">CO₂仅按自定义标煤系数做理论折算；项目减排量应按被替代能源、当地排放因子和核算边界另算，不将该数值作为核证减排量。</div>
+</div></details>
+</div>
+</section>
+<section class="results" aria-label="计算结果"><h2><span class="dot ok"></span>计算结果</h2><div class="messages" id="messages" aria-live="polite"></div><div id="resultContent"><div class="empty">请填写参数。</div></div><div class="actions"><button id="copyBtn" type="button">复制测算摘要</button><button id="resetBtn" type="button">恢复本场景默认值</button></div><div id="copyNotice" class="copy-ok" aria-live="polite"></div></section>
+</div></div><div class="foot">稳定工况工程初算 · 蒸汽采用内置饱和蒸汽表插值与焓差法 · 气体视为理想气体近似 · 非换热器设备选型/节能量核证报告</div>
+</main>
+<script>
+'use strict';
+// 单文件、无网络依赖的工程初算引擎。蒸汽数据为 IF97 饱和蒸汽表近似采样值，线性插值。
+const FLUIDS={gas_ng:{name:'天然气烟气',cp:1.10,rho:1.22},gas_diesel:{name:'柴油烟气',cp:1.05,rho:1.28},gas_coal:{name:'燃煤烟气',cp:1.08,rho:1.32},gas_custom:{name:'自定义废气',cp:1.05,rho:1.20},water:{name:'水',cp:4.18,rho:998},oil:{name:'导热油',cp:2.20,rho:820},air:{name:'空气',cp:1.005,rho:1.293}};
+// pressure MPa absolute, T °C, hf / hg kJ/kg; valid only for 0.1...2.0 MPa.
+// Reference: IAPWS-IF97 saturated steam table (sample/interpolated): https://tools.petrov.re/steam_tables.html?lang=en
+// This table and constant superheat cp approximate IF97; for detailed engineering use an IF97 solver.
+const STEAM_TABLE=[
+[0.10,99.61,417.5,2674.9],[0.15,111.37,467.1,2693.5],[0.20,120.21,504.7,2706.3],
+[0.30,133.53,561.4,2725.3],[0.40,143.61,604.7,2738.5],[0.50,151.83,640.1,2748.7],
+[0.60,158.83,670.4,2756.2],[0.70,164.95,697.1,2763.5],[0.80,170.41,720.9,2768.3],
+[1.00,179.88,762.5,2777.1],[1.20,187.96,798.5,2783.7],[1.50,198.29,844.7,2791.0],[2.00,212.38,908.5,2797.2]];
+const MODES={
+'gas-water':{kind:'gas',cold:'water',tempIn:200,tempOut:80,flow:10000},
+'steam-water':{kind:'steam',cold:'water',tempIn:220,tempOut:80,flow:1000},
+'water-water':{kind:'liquid',cold:'water',tempIn:80,tempOut:40,flow:10},
+'gas-air':{kind:'gas',cold:'air',tempIn:300,tempOut:100,flow:10000}
+};
+let currentMode='gas-water';let snapshots={};let lastResult=null;
+const $=id=>document.getElementById(id);
+const round=(x,n=1)=>Number(x).toLocaleString('zh-CN',{minimumFractionDigits:n,maximumFractionDigits:n});
+function opts(keys){return keys.map(k=>`<option value="${k}">${FLUIDS[k].name}</option>`).join('');}
+function field(id,label,value,unit,attrs='',desc=''){return `<div class="field"><label for="${id}">${label}</label><div class="inputrow"><input type="number" id="${id}" value="${value}" ${attrs}><span class="unit" id="${id}Unit">${unit}</span></div>${desc?`<small>${desc}</small>`:''}</div>`;}
+function selectField(id,label,choices){return `<div class="field"><label for="${id}">${label}</label><select id="${id}">${choices}</select></div>`;}
+function liquidEnthalpy(t){return 4.18*t+0.0002*t*t;}
+function interpSteam(p){if(!Number.isFinite(p)||p<.1||p>2)return null;for(let i=1;i<STEAM_TABLE.length;i++){const a=STEAM_TABLE[i-1],b=STEAM_TABLE[i];if(p<=b[0]+1e-9){const f=(p-a[0])/(b[0]-a[0]);return{ts:a[1]+f*(b[1]-a[1]),hf:a[2]+f*(b[2]-a[2]),hg:a[3]+f*(b[3]-a[3])};}}return null;}
+function saturationPressureKpa(t){ // Magnus equation for ~0...100°C; beyond use steam table inverse
+if(t<=100)return .61094*Math.exp(17.625*t/(t+243.04));
+for(let i=1;i<STEAM_TABLE.length;i++){const a=STEAM_TABLE[i-1],b=STEAM_TABLE[i];if(t<=b[1])return 1000*(a[0]+(t-a[1])/(b[1]-a[1])*(b[0]-a[0]));}
+return Infinity;
+}
+function dewPointFromPartialKpa(p){if(p<=0)return null;const l=Math.log(p/.61094);return 243.04*l/(17.625-l);}
+function isHotGas(){return MODES[currentMode].kind==='gas';}
+function buildForm(){
+const mode=MODES[currentMode],kind=mode.kind,coldAir=mode.cold==='air';
+let h='';
+if(kind==='gas'){
+h+=selectField('hotFluid','废气类型',opts(['gas_ng','gas_diesel','gas_coal','gas_custom']));
+h+=selectField('hotFlowBasis','热源体积流量计量口径','<option value="normal">标况 Nm³/h（0℃、101.325kPa）</option><option value="actual">入口工况 m³/h</option>');
+h+=field('hotFlow','废气体积流量',mode.flow,'Nm³/h','min="0" step="100"');
+h+=field('hotTin','废气入口温度',mode.tempIn,'℃','min="-20" max="1500" step="1"');
+h+=field('hotTout','废气出口温度',mode.tempOut,'℃','min="-20" max="1500" step="1"');
+h+=`<div class="mini-grid">${field('hotCp','废气比热容 Cp',1.1,'kJ/kg℃','min="0.01" step="0.01"')}${field('hotRho','标况密度 ρₙ',1.22,'kg/Nm³','min="0.01" step="0.01"')}</div>`;
+h+=field('hotPressure','烟气绝对压力',101.325,'kPa(a)','min="5" max="3000" step="1"','仅用于入口实际流量换算与冷凝露点估算');
+h+=`<details class="fold" id="gasCondFold"><summary>冷凝潜热（默认关闭）</summary><div class="fold-body"><label class="description"><input type="checkbox" id="calcLatent"> 计入废气水蒸气冷凝潜热</label><div id="latentInputs" hidden><div class="mini-grid">${field('moisturePct','废气入口水蒸气体积分数',15,'%vol','min="0" max="99.9" step="0.5"')}${field('condensationRatio','期望最大冷凝比例',80,'%','min="0" max="100" step="1"')}${field('vaporDensity','标况水蒸气密度',0.804,'kg/Nm³','min="0.01" step="0.001"')}${field('flueGasLatent','冷凝潜热近似值',2400,'kJ/kg','min="100" max="3000" step="10"')}</div><div class="description">实际冷凝比例自动限制在水蒸气相平衡所允许的范围内。对燃煤/含硫烟气需另校核酸露点与防腐。</div></div></div></details>`;
+}else if(kind==='steam'){
+h+=selectField('steamType','蒸汽状态','<option value="sat">饱和蒸汽</option><option value="super">过热蒸汽</option>');
+h+=field('hotFlow','蒸汽质量流量',mode.flow,'kg/h','min="0" step="100"');
+h+=field('steamPressure','蒸汽绝对压力',0.62,'MPa(a)','min="0.1" max="2" step="0.01"','约9kgf/cm²表压≈0.98MPa绝压；此工具支持0.1–2.0MPa绝压');
+h+=field('steamTsat','对应饱和温度','', '℃','disabled');
+h+=`<div id="steamSuperWrap" hidden>${field('hotTin','过热蒸汽入口温度',mode.tempIn,'℃','min="0" max="700" step="1"')}</div>`;
+h+=`<div id="steamQualityWrap">${field('steamQuality','饱和蒸汽干度',100,'%','min="0" max="100" step="1"','100%=干饱和蒸汽；低于100%含液滴')}</div>`;
+h+=field('hotTout','冷凝水出口温度',mode.tempOut,'℃','min="0" max="350" step="1"','本模式按出口全部为凝结水计算。不能处理部分冷凝或汽水混合出口');
+}else{
+h+=selectField('hotFluid','热源介质',opts(['water','oil']));
+h+=field('hotFlow','热源体积流量',mode.flow,'m³/h','min="0" step="0.5"');
+h+=field('hotTin','热源入口温度',mode.tempIn,'℃','min="0" max="500" step="1"');
+h+=field('hotTout','热源出口温度',mode.tempOut,'℃','min="0" max="500" step="1"');
+h+=`<div class="mini-grid">${field('hotCp','介质比热容 Cp',4.18,'kJ/kg℃','min="0.01" step="0.01"')}${field('hotRho','介质密度',998,'kg/m³','min="0.01" step="0.1"')}</div>`;
+h+=field('hotPressure','热源绝对压力（仅水）',0.1013,'MPa(a)','min="0.1" max="2" step="0.01"','热源为水时用于校核液态状态');
+}
+$('hotFields').innerHTML=h;
+let c=selectField('coldMethod','计算方式','<option value="flow">按目标出口温度 → 反推流量</option><option value="temp">按固定流量 → 反推出口温度</option>');
+c+=field('coldTin',coldAir?'空气入口温度':'冷水入口温度',20,'℃','min="-20" max="350" step="1"');
+c+=`<div id="coldTargetWrap">${field('coldTout',coldAir?'目标出口空气温度':'目标出水温度',coldAir?120:60,'℃','min="-20" max="350" step="1"')}</div>`;
+c+=`<div id="coldFlowWrap" hidden>${field('coldFlow',coldAir?'入口空气实际体积流量':'固定冷端水量',coldAir?5000:10,'m³/h','min="0" step="0.1"')}</div>`;
+c+=`<div class="mini-grid">${field('coldCp',coldAir?'空气比热容 Cp':'水的比热容 Cp',coldAir?1.005:4.18,'kJ/kg℃','min="0.01" step="0.01"')}${field('coldRho',coldAir?'空气标况密度':'冷水密度',coldAir?1.293:998,coldAir?'kg/Nm³':'kg/m³','min="0.01" step="0.1"')}</div>`;
+if(!coldAir)c+=field('coldPressure','冷端水绝对压力',0.1013,'MPa(a)','min="0.1" max="2" step="0.01"','用于校核水的沸腾状态；水温超过饱和温度将停止计算');
+else c+='<div class="description">空气体积流量按冷端入口实际状态计，按理想气体近似折算密度，假设绝压101.325kPa。</div>';
+$('coldFields').innerHTML=c;
+$('hotFields').querySelectorAll('input,select').forEach(x=>x.addEventListener('input',onInput));
+$('coldFields').querySelectorAll('input,select').forEach(x=>x.addEventListener('input',onInput));
+if(kind==='gas')$('hotFluid').value='gas_ng';
+syncFields();calc();
+}
+function syncFields(){
+const kind=MODES[currentMode].kind;
+if($('coldTargetWrap'))$('coldTargetWrap').hidden=$('coldMethod').value!=='flow';
+if($('coldFlowWrap'))$('coldFlowWrap').hidden=$('coldMethod').value!=='temp';
+if(kind==='steam'){
+const st=interpSteam(num('steamPressure'));
+$('steamTsat').value=st?st.ts.toFixed(2):'';
+$('steamSuperWrap').hidden=$('steamType').value!=='super';
+$('steamQualityWrap').hidden=$('steamType').value!=='sat';
+}
+if(kind==='gas'){
+$('hotFlowUnit').textContent=$('hotFlowBasis').value==='normal'?'Nm³/h':'m³/h';
+$('latentInputs').hidden=!$('calcLatent').checked;
+}
+}
+function onInput(e){
+if(e.target.id==='hotFluid'){
+const f=FLUIDS[$('hotFluid').value];if(f){$('hotCp').value=f.cp;$('hotRho').value=f.rho;}
+}
+if(e.target.id==='replacement'){
+$('boilerEffWrap').hidden=$('replacement').value==='none';
+$('gasHeatWrap').hidden=$('replacement').value!=='gas';
+}
+syncFields();calc();
+}
+function num(id){const e=$(id);return e&&e.value.trim()!==''?Number(e.value):NaN;}
+function required(v,name,errors,lo,hi=Infinity){if(!Number.isFinite(v)||v<lo||v>hi)errors.push(`${name}须在 ${lo}～${Number.isFinite(hi)?hi:'合理上限'} 范围内`);}
+function compute(){
+const mode=MODES[currentMode],kind=mode.kind,coldAir=mode.cold==='air';
+const errors=[],warnings=[];
+const hFlow=num('hotFlow'),hTout=num('hotTout'),cTin=num('coldTin'),cCp=num('coldCp'),cRho=num('coldRho');
+const hours=num('runHours'),match=num('loadMatch'),coefficient=num('efficiency'),approach=num('approach');
+const cMethod=$('coldMethod').value,cTarget=cMethod==='flow'?num('coldTout'):NaN,cFlow=cMethod==='temp'?num('coldFlow'):NaN;
+required(hFlow,'热源流量',errors,0.000001,1e10);required(hTout,'热源出口温度',errors,-20,1500);
+required(cTin,'冷端入口温度',errors,-20,350);required(cCp,'冷端比热容',errors,0.001,30);required(cRho,'冷端密度',errors,0.001,5000);
+required(hours,'年运行小时',errors,0,8760);required(match,'负荷匹配率',errors,0,100);required(coefficient,'可利用系数',errors,0.01,100);required(approach,'端温差',errors,0,100);
+if(cMethod==='flow')required(cTarget,'冷端目标温度',errors,-20,350);else required(cFlow,'冷端固定流量',errors,0.00001,1e10);
+const basis=document.querySelector('input[name="basis"]:checked').value;
+let hTin=NaN,mHot=NaN,qs=0,ql=0,qDesuper=0,qCondLiquid=0,dew=null,actualCondPct=0,steamInfo=null,normalFlow=NaN;
+if(kind==='steam'){
+const p=num('steamPressure'),q=num('steamQuality'),t=num('hotTin');
+required(p,'蒸汽绝对压力',errors,0.1,2);
+steamInfo=interpSteam(p);
+if(steamInfo){
+hTin=$('steamType').value==='sat'?steamInfo.ts:t;
+if($('steamType').value==='sat')required(q,'蒸汽干度',errors,0,100);
+else if(!Number.isFinite(t)||t<=steamInfo.ts+0.01||t>700)errors.push(`过热蒸汽入口温度必须高于当前压力的饱和温度 ${round(steamInfo.ts,1)}℃`);
+if(Number.isFinite(hTout)&&hTout>=steamInfo.ts-.01)errors.push(`冷凝水出口温度须低于饱和温度 ${round(steamInfo.ts,1)}℃；部分冷凝暂不支持`);
+if(hTout<0)errors.push('冷凝水出口温度不能低于0℃（本模型未计结冰）');
+const latent=steamInfo.hg-steamInfo.hf;
+ql=(hFlow*latent*($('steamType').value==='sat'?q/100:1))/3600;
+if($('steamType').value==='super')qDesuper=hFlow*2.08*(hTin-steamInfo.ts)/3600;
+qCondLiquid=hFlow*(steamInfo.hf-liquidEnthalpy(hTout))/3600;
+qs=qDesuper+qCondLiquid;
+if(qCondLiquid<0)errors.push('凝结水出口焓不应高于饱和液态水焓');
+}
+mHot=hFlow;
+warnings.push('蒸汽焓差采用0.1–2.0MPa饱和蒸汽表插值；过热段 Cp≈2.08，凝结水焓按温度近似，适用于工程初算。');
+}else{
+const fluid=FLUIDS[$('hotFluid').value],cp=num('hotCp'),rho=num('hotRho'),t=num('hotTin');hTin=t;
+required(t,'热源入口温度',errors,-20,1500);required(cp,'热源比热容',errors,0.001,30);required(rho,'热源密度',errors,0.001,5000);
+if(kind==='gas'){
+const p=num('hotPressure');required(p,'废气绝对压力',errors,5,3000);
+const normalBasis=$('hotFlowBasis').value==='normal';
+normalFlow=normalBasis?hFlow:hFlow*(p/101.325)*(273.15/(273.15+t));
+mHot=normalFlow*rho;
+if($('calcLatent').checked){
+const y=num('moisturePct')/100,desired=num('condensationRatio')/100,vaporRho=num('vaporDensity'),lv=num('flueGasLatent');
+required(y,'入口水蒸气体积分数',errors,0,.999);required(desired,'冷凝比例',errors,0,1);required(vaporRho,'水蒸气标况密度',errors,0.01,5);required(lv,'冷凝潜热',errors,100,3000);
+if(p>0&&y>0){
+dew=dewPointFromPartialKpa(p*y);
+let yOut=Math.min(.999999,saturationPressureKpa(hTout)/p);
+const thermodynamicMax=yOut<y?Math.max(0,1-yOut*(1-y)/(y*(1-yOut))):0;
+const frac=Math.min(desired,thermodynamicMax);
+actualCondPct=frac*100;
+ql=normalFlow*y*vaporRho*frac*lv/3600;
+if(desired>thermodynamicMax+0.0001)warnings.push(`烟气出口 ${round(hTout,1)}℃、露点约 ${round(dew,1)}℃：期望冷凝 ${round(desired*100,1)}%，受相平衡限制最多约 ${round(thermodynamicMax*100,1)}%。已自动按可冷凝量计算。`);
+}
+}
+}else{
+mHot=hFlow*rho;
+if($('hotFluid').value==='water'){
+const p=num('hotPressure');required(p,'热源水绝对压力',errors,0.1,2);
+if(Number.isFinite(t)&&Number.isFinite(p)&&saturationPressureKpa(t)>p*1000+1)errors.push(`热源水温 ${round(t,1)}℃ 高于 ${round(p,3)}MPa(a) 下的沸点，请提高压力或修正介质状态`);
+}
+}
+qs=mHot*cp*(hTin-hTout)/3600;
+}
+if(!(hTin>hTout))errors.push('热源入口温度必须高于出口温度');
+if(hTout<cTin+approach-.001)errors.push(`热源出口温度应至少高于冷端入口温度 ${round(approach,1)}℃（端温差初算约束）`);
+const raw=qs+ql;
+if(!(raw>0))errors.push('热源可回收热量应大于零；请检查温度、流量和相态');
+let recovered=raw*coefficient/100;
+let cOut=NaN,needFlow=NaN,cMassFlow=NaN;
+if(cMethod==='flow'){
+cOut=cTarget;
+cMassFlow=recovered*3600/(cCp*(cOut-cTin));
+needFlow=coldAir?cMassFlow/(cRho*273.15/(273.15+cTin)):cMassFlow/cRho;
+if(!(cOut>cTin))errors.push('目标出口温度必须高于冷端入口温度');
+}else{
+needFlow=cFlow;
+cMassFlow=coldAir?cFlow*cRho*273.15/(273.15+cTin):cFlow*cRho;
+cOut=cTin+recovered*3600/(cMassFlow*cCp);
+}
+const coldHotLimit=kind==='steam'&&$('steamType').value==='sat'?steamInfo?.ts:hTin;
+if(Number.isFinite(cOut)&&Number.isFinite(coldHotLimit)&&cOut>coldHotLimit-approach+0.001)errors.push(`冷端出口 ${round(cOut,1)}℃ 超过近似换热上限 ${round(coldHotLimit-approach,1)}℃，需增加冷端流量、调整设计温差或更改方案`);
+if(!coldAir&&Number.isFinite(cOut)){
+const p=num('coldPressure');required(p,'冷端水绝对压力',errors,0.1,2);
+if(Number.isFinite(p)&&saturationPressureKpa(cOut)>p*1000+1)errors.push(`冷端水预计 ${round(cOut,1)}℃，在 ${round(p,3)}MPa(a) 下无法保持单相液态。请增大流量或提高系统压力`);
+}
+const active=Math.max(0,recovered);
+const annualPotential=active*hours/1000,annualUseful=annualPotential*match/100;
+const coalFactor=num('coalFactor'),co2Factor=num('co2Factor');required(coalFactor,'折标煤系数',errors,0,10);required(co2Factor,'CO₂折算系数',errors,0,20);
+const equivalentTce=annualUseful*coalFactor,estimatedCo2=equivalentTce*co2Factor;
+const replacement=$('replacement').value;let substitute=null;
+if(replacement!=='none'){
+const be=num('boilerEff');required(be,'被替代设备效率',errors,0.01,100);
+const purchasedEnergy=annualUseful/(be/100);
+if(replacement==='gas'){
+const hv=num('gasHeat');required(hv,'天然气低位热值',errors,1,20);
+substitute={label:'折算节约天然气量',value:purchasedEnergy*1000/hv,unit:'Nm³/年',basis:`按照供热效率 ${round(be,1)}%、天然气低位热值 ${round(hv,2)} kWh/Nm³估算`};
+}else substitute={label:'折算节约购电量',value:purchasedEnergy,unit:'MWh/年',basis:`按照电加热效率 ${round(be,1)}%估算`};
+}
+if(basis==='design')warnings.unshift('按设计热源出口温度估算；工程可利用系数是保守折减假设，未进行换热面积和传热系数校核。');
+if(match<100)warnings.push(`已按负荷匹配率 ${round(match,0)}% 折减年有效利用量；额定功率不受该参数影响。`);
+return{errors,warnings,kind,basis,hTin,hTout,dew,actualCondPct,mHot,normalFlow,qs,ql,qDesuper,qCondLiquid,raw,recovered,needFlow,cOut,cTin,approach,annualPotential,annualUseful,equivalentTce,estimatedCo2,substitute,coefficient,match,hours,cMethod,steamInfo};
+}
+function safeText(s){const x=document.createElement('span');x.textContent=String(s);return x.innerHTML;}
+function render(){
+const r=compute();lastResult=r;
+$('messages').innerHTML=r.errors.map(m=>`<div class="message error">⛔ ${safeText(m)}</div>`).join('')+r.warnings.slice(0,r.errors.length?2:5).map(m=>`<div class="message warn">${safeText(m)}</div>`).join('');
+$('copyBtn').disabled=r.errors.length>0;
+if(r.errors.length){$('resultContent').innerHTML='<div class="empty">当前输入存在不符合热力学或参数范围的情况。有效功率、年节能量已暂停输出；请先修正上方问题。</div>';$('mobileKw').textContent='参数待修正';return;}
+const f=r.kind==='steam'?'冷端水量':r.kind==='gas'&&MODES[currentMode].cold==='air'?'空气量':'冷端水量';
+const vUnit=MODES[currentMode].cold==='air'?'m³/h':'m³/h';
+const flowPrec=r.needFlow<10?2:1;
+const latentShare=r.raw>0?r.ql/r.raw*100:0,otherShare=r.raw>0?r.qs/r.raw*100:0;
+const eff=r.coefficient;
+$('mobileKw').textContent=round(r.recovered,1)+' kW';
+$('resultContent').innerHTML=`
+<div class="result-grid">
+<div class="metric"><div class="n amber">${round(r.raw,1)}</div><div class="tag">热源理论释放热量 (kW)</div></div>
+<div class="metric"><div class="n green">${round(r.recovered,1)}</div><div class="tag">有效回收热功率 (kW)</div></div>
+<div class="metric"><div class="n">${round(r.needFlow,flowPrec)}</div><div class="tag">${f} (${vUnit})</div><div class="detail">${r.cMethod==='flow'?'反推所需流量':'固定输入流量'}</div></div>
+<div class="metric"><div class="n">${round(r.cOut,1)}℃</div><div class="tag">冷端出口温度</div></div>
+<div class="metric"><div class="n">${round(r.annualUseful,1)}</div><div class="tag">年有效利用热量 (MWh)</div><div class="detail">已计冷热负荷匹配率</div></div>
+<div class="metric"><div class="n">${round(r.annualPotential,1)}</div><div class="tag">额定年回收潜力 (MWh)</div><div class="detail">未计负荷匹配折减</div></div>
+</div>
+<div class="detail-list">
+<div class="detail-row"><span>热源质量流量</span><strong>${round(r.mHot/1000,3)} t/h</strong></div>
+${r.kind==='steam'?`<div class="detail-row"><span>压力对应饱和温度</span><strong>${round(r.steamInfo.ts,1)} ℃</strong></div><div class="detail-row"><span>过热段放热</span><strong>${round(r.qDesuper,1)} kW</strong></div><div class="detail-row"><span>冷凝潜热</span><strong>${round(r.ql,1)} kW</strong></div><div class="detail-row"><span>凝结水降温放热</span><strong>${round(r.qCondLiquid,1)} kW</strong></div>`:`<div class="detail-row"><span>热源显热</span><strong>${round(r.qs,1)} kW</strong></div>${r.ql>0?`<div class="detail-row"><span>水蒸气冷凝潜热</span><strong>${round(r.ql,1)} kW</strong></div>`:''}${r.dew!==null?`<div class="detail-row"><span>估算水露点 / 实际冷凝比例</span><strong>${round(r.dew,1)}℃ / ${round(r.actualCondPct,1)}%</strong></div>`:''}`}
+<div class="detail-row"><span>${r.basis==='design'?'方案可利用系数':'实测工况有效利用比例'}</span><strong>${round(r.coefficient,1)}%</strong></div>
+<div class="detail-row"><span>年运行 / 负荷匹配</span><strong>${round(r.hours,0)} h / ${round(r.match,0)}%</strong></div>
+<div class="detail-row"><span>等热值折标煤（理论）</span><strong>${round(r.equivalentTce,2)} tce/年</strong></div>
+<div class="detail-row"><span>基于自定义系数的CO₂折算</span><strong>${round(r.estimatedCo2,2)} t/年</strong></div>
+${r.substitute?`<div class="detail-row"><span>${r.substitute.label}</span><strong>${round(r.substitute.value,r.substitute.unit==='Nm³/年'?0:1)} ${r.substitute.unit}</strong></div><p class="note">${safeText(r.substitute.basis)}</p>`:''}
+</div>
+<div class="heatbar" title="理论放热构成（不含回收折减）"><div class="part1" style="width:${otherShare}%"></div><div class="part2" style="width:${latentShare}%"></div></div>
+<div class="legend"><span>显热 ${round(otherShare,1)}%</span><span>冷凝潜热 ${round(latentShare,1)}%</span></div>
+<p class="note">显热、潜热为热源侧理论放热；有效回收功率已单独计入 ${round(eff,1)}% 可利用系数。这里的潜热分解与能源折算不代表项目实测节能量。</p>`;
+}
+function calc(){try{render();}catch(e){console.error(e);$('messages').innerHTML='<div class="message error">计算程序出现异常，请检查输入值或恢复默认设置。</div>';$('resultContent').innerHTML='';$('mobileKw').textContent='—';$('copyBtn').disabled=true;lastResult=null;}}
+function saveCurrent(){const values={};document.querySelectorAll('#hotFields input,#hotFields select,#coldFields input,#coldFields select').forEach(x=>values[x.id]=x.type==='checkbox'?x.checked:x.value);snapshots[currentMode]=values;}
+function restoreCurrent(){const v=snapshots[currentMode];if(!v)return;Object.entries(v).forEach(([id,val])=>{const x=$(id);if(x){if(x.type==='checkbox')x.checked=!!val;else x.value=val;}});}
+function initMode(newMode){if(newMode!==currentMode)saveCurrent();currentMode=newMode;document.querySelectorAll('#modeNav button').forEach(b=>b.classList.toggle('active',b.dataset.mode===newMode));buildForm();restoreCurrent();syncFields();calc();}
+$('modeNav').addEventListener('click',e=>{const btn=e.target.closest('button[data-mode]');if(btn)initMode(btn.dataset.mode);});
+function syncBasis(resetFactor=false){
+const measured=document.querySelector('input[name="basis"]:checked').value==='measured';
+if(resetFactor)$('efficiency').value=measured?100:75;
+$('factorLabel').textContent=measured?'实测热源放热的有效利用比例':'工程可利用系数';
+$('basisDesc').textContent=measured?'按实测热源进出口状态求已释放热量。默认100%代表热源侧放热全部由冷端获得；如存在对外散热/下游损失可适当调低。':'按预估热源温降计算资源量，再乘工程可利用系数。该系数是初算折减，不能代表换热器热工效能。';
+calc();
+}
+document.querySelectorAll('input[name="basis"]').forEach(x=>x.addEventListener('change',()=>syncBasis(true)));
+['efficiency','approach','runHours','loadMatch','coalFactor','co2Factor','replacement','boilerEff','gasHeat'].forEach(id=>$(id).addEventListener('input',onInput));
+$('resetBtn').addEventListener('click',()=>{
+delete snapshots[currentMode];
+const defaults={efficiency:75,approach:5,runHours:8000,loadMatch:100,coalFactor:0.1229,co2Factor:2.66,boilerEff:90,gasHeat:9.5};
+for(const [id,value] of Object.entries(defaults))$(id).value=value;
+document.querySelector('input[name="basis"][value="design"]').checked=true;
+$('replacement').value='none';$('boilerEffWrap').hidden=true;$('gasHeatWrap').hidden=true;
+syncBasis(false);buildForm();
+$('copyNotice').textContent='已恢复当前场景及公共参数的默认值';
+});
+$('copyBtn').addEventListener('click',async()=>{
+const r=lastResult;if(!r||r.errors.length)return;
+const textValue=`余热回收快速测算\n场景：${document.querySelector('#modeNav button.active').textContent}\n计算口径：${r.basis==='design'?'设计预估':'实测热源'}\n热源：${round(r.hTin,1)} → ${round(r.hTout,1)} ℃\n热源质量流量：${round(r.mHot/1000,3)} t/h\n理论放热：${round(r.raw,1)} kW\n有效回收功率：${round(r.recovered,1)} kW\n冷端：${round(r.cTin,1)} → ${round(r.cOut,1)} ℃，流量 ${round(r.needFlow,2)} m³/h\n年运行时间：${r.hours} h；负荷匹配率：${r.match}%\n年有效利用热量：${round(r.annualUseful,1)} MWh\n年理论折标煤：${round(r.equivalentTce,2)} tce\n备注：工程初算，非换热器设计及核证节能量。`;
+try{if(navigator.clipboard&&window.isSecureContext)await navigator.clipboard.writeText(textValue);else{const tmp=document.createElement('textarea');tmp.value=textValue;tmp.style.position='fixed';tmp.style.left='-9999px';document.body.appendChild(tmp);tmp.select();if(!document.execCommand('copy'))throw new Error('copy unavailable');tmp.remove();}$('copyNotice').textContent='摘要已复制';}catch(err){$('copyNotice').textContent='当前浏览器限制复制，可使用 Ctrl+C 复制页面结果';}
+});
+buildForm();
+</script>
+</body>
+</html>
